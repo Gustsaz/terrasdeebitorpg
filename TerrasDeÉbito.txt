@@ -1,0 +1,314 @@
+Firebase:
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDh7pBtfN3coEghv-dP5urWsk3FkJtMs2c",
+  authDomain: "terrasdeebito.firebaseapp.com",
+  databaseURL: "https://terrasdeebito-default-rtdb.firebaseio.com",
+  projectId: "terrasdeebito",
+  storageBucket: "terrasdeebito.firebasestorage.app",
+  messagingSenderId: "148960203673",
+  appId: "1:148960203673:web:055e2f19289f39de18f908",
+  measurementId: "G-MGQ8KGTMX6"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+É um site de RPG para criação e gerenciamento de fichas, com conexão ao Firebase com Autenticação a o Google e Realtime Database para salvar personagens e mais, caso o login for feito com o
+"knapicko@gmail.com" e com o "messytails4@gmail.com" deve aparecer um painel de administração na parte debaixo da navbar, essa painel deve permitir adicionar, editar e excluir feitiços, armas, milagres e ataques/habilidades
+com integração total ao realtime database
+
+as cores predominantes do site devem ser
+
+Preto: 18, 18, 18
+Cinza: 66, 66, 66
+Vermelho: 92, 17, 2
+
+Com uma opção de modo claro que troca o cinza e preto por branco
+--------------------------------------------------------------------
+
+Tela 1: Navbar lateral na esquerda, no meio da tela há 4 slots de personagem, os slots tem uma + no meio caso o usuário não tenha criado ainda, caso ele clique, vai abrir um pop-up
+de criação de ficha com os seguintes campos:
+
+Nome do Personagem (Obrigatório)
+Classe (o usuário pode escolher entre Arcanista, Escudeiro, Errante e Luminar)(Obrigatório)
+Caminho
+
+Status (O usuário no nível 1 começa com 7 pontos para distribuir)(valor base em 0 mas o usuário pode deixar em -1 para ganhar um ponto de status a mais)(Obrigatório distribuir os 7 pontos)
+Bravura (Bra):
+Arcana (Arc):
+Técnica (Tec):
+Fôlego (Fol):
+Essência (Ess):
+Intelecto (Int):
+
+Vida: (tem uma base dependendo da classe escolhida)
+Mana: (tem uma base dependendo da classe escolhida)
+Estamina: (tem uma base dependendo da classe escolhida)
+
+Descrição de História:
+Descrição de Aparência:
+
+Após criar a ficha, o slot deve aparecer o nome do personagem e no canto inferior direito um botão de editar, em que é possivel apagar a ficha ou alterar sua imagem
+
+Tela 2: ela aparece quando o usuário clica no slot com o personagem já criado, essa tela mantém a navbar na esquerda, ao meio há 6 quadrados mostrando os atributos do personagem, acima há uma barra de vida, mana e estamina, e na 
+parte debaixo há 4 containers (Armas, Feitiços, Milagres e Ataques/Habilidades), e um paínel de anotação abaixo, o usuário pode alterar sua ficha a qualquer momento clicando em um botão ao lados dos quadrados de status
+
+ 
+
+Armas a serem adicionadas:
+
+
+Armas:
+
+Leves
+
+	Adaga — Dano: 1d4 ou comum 1d6 | Tipo de Dano: Cortante | Peso: 1 | Crítico: caso seja comum 20 — 2x
+
+	Porrete — Dano: 1d4 ou comum 1d6 | Tipo de Dano: Contundente | Peso: 1 | Crítico: caso seja comum 20 — 2x
+
+	Punhal Curvo — Dano: 1d6 - 1 ou comum 1d8 - 2 | Tipo de Dano: Cortante | Peso: 1 | Crítico: caso seja comum 19 — 3x
+
+Comuns
+
+	Espada Curta — Dano: 1d8 | Tipo de Dano: Cortante | Peso: 1.5 | Crítico: 19 — Crítico 2x
+
+	Maça — Dano: 1d8 | Tipo de Dano: Contundente | Peso: 2 | Crítico: 20 — Crítico 2x
+
+	Martelo — Dano: 1d10 | Tipo de Dano: Contundente | Peso: 2.5 | Crítico: 20 — Crítico 2x
+	
+	Lança Curta — Dano: 1d10 | Tipo de Dano: Perfurante | Peso: 2 | Crítico: 20 — Crítico
+
+	Machado de Mão — Dano: 1d8 + 2 | Tipo de Dano: Perfurante | Peso: 2 | Crítico: 20 — Crítico 2x
+
+	Cimitarra — Dano: 1d8 + 1 | Tipo de Dano: Cortante | Peso: 1.5 | Crítico: 20 — Crítico 3x
+
+Duas Mãos
+
+	Montante — Dano: 1d12 | Tipo de Dano: Cortante | Peso: 4 | Crítico: 20 — Crítico 2x
+
+	Machado de Batalha — Dano: 1d10 + 2 | Tipo de Dano: Cortante | Peso: 4 | Crítico: 20 — Crítico 2x
+
+	Martelo Pesado — Dano: 1d12 | Tipo de Dano: Contundente | Peso: 4 | Crítico: 20 — Crítico 2x
+
+	Maça Grande — Dano: 1d12 + 2 | Tipo de Dano: Contundente | Peso: 5 | Crítico: 20 — Crítico 2x
+
+	Lança Longa — Dano: 1d8 + 4 | Tipo de Dano: Perfurante | Peso: 3.5 | Crítico: 19 — Crítico 2x
+
+Técnicas
+
+	Katana — Dano: 1d10 | Tipo de Dano: Cortante | Peso: 2 | Crítico: 19 — Crítico 2x
+
+	Foice Lunar — Dano: 1d6 + 2 | Tipo de Dano: Cortante | Peso: 1.5 | Crítico: 19 — Crítico 3x
+
+	Rapieira — Dano: 1d4 + 2 | Tipo de Dano: Perfurante | Peso: 2 | Crítico: 18 — Crítico 3x
+
+	Arco Longo — Dano: 1d6 | Tipo de Dano: Perfurante | Peso: 1.5 | Crítico: 18 — Crítico 2x
+
+	Crossbow — Dano: 1d6 + 2 | Tipo de Dano: Perfurante | Peso: 2 | Crítico: 19 — Crítico 2x
+
+
+Regras de equipamentos
+Armas, equipamentos mágicos e defensivos têm níveis diferentes que alteram seus
+danos ou passivas. Armas ganham aumento de dano garantido ou aumento de dados de dano
+de acordo com o nível, equipamentos mágicos ganham um amplificador mágico de acordo com
+suas funções e equipamentos defensivos ganham bônus na sua passiva defensiva.
+	
+Habilidades Técnicas
+As armas técnicas possuem habilidades técnicas exclusivas. Essas habilidades
+consomem Stamina (St) e utilizam todo o turno para serem executadas.
+
+Feitiços:
+
+Feitiços Básicos
+
+Feitiço: Raio Arcano
+Descrição: Concentra energia pura e dispara um feixe direto no alvo.
+Efeito: 1d6 de dano mágico direto. Ignora armaduras físicas.
+Custo (Mn): 3
+
+Feitiço: Lâmina Etérea
+Descrição: Cria uma lâmina de energia arcana que corta o ar.
+Efeito: 1d4 + Arc de dano mágico corpo a corpo.
+Custo (Mn): 2
+
+Feitiço: Escudo Mental
+Descrição: Gera uma barreira invisível de força psíquica.
+Efeito: +1 de Defesa e resistência a dano mágico por 1d4 turnos.
+Custo (Mn): 4
+
+Feitiço: Toque Místico
+Descrição: Canaliza energia pura nas mãos, liberando-a em um toque.
+Efeito: 1d4 + Arc de dano mágico. Se o alvo cair, o conjurador recupera 1 Mn.
+Custo (Mn): 3
+
+Feitiço: Telecinese Menor
+Descrição: Move pequenos objetos ou abre portas à distância.
+Efeito: Move até 2 kg a até 6 m de distância.
+Custo (Mn): 2
+
+Feitiço: Luz Arcana
+Descrição: Cria uma esfera luminosa de energia pura que flutua.
+Efeito: Ilumina um raio de 6 m por 1 hora.
+Custo (Mn): 1
+
+Feitiço: Selo de Repulsão
+Descrição: Cria uma runa que libera uma onda de força mágica.
+Efeito: Empurra inimigos em 1d4 m de distância.
+Custo (Mn): 5
+
+---
+
+Feitiços Elementais: Fogo
+
+Feitiço: Bola de Fogo
+Descrição: Lança uma esfera incandescente em alcance médio que explode ao contato.
+Efeito: 1d8 dano de fogo em área
+Custo (Mn): 6
+
+Feitiço: Mãos Flamejantes
+Descrição: Cria labaredas nas mãos, incendiando inimigos em alcance corpo a corpo.
+Efeito: 1d10 dano de fogo.
+Custo (Mn): 4
+
+Feitiço: Parede Ígnea
+Descrição: Invoca uma parede de fogo que ficará por 1d4 de turnos em alcance médio.
+Efeito: 1d6 de dano
+Custo (Mn): 8
+
+Feitiço: Explosão Ardente
+Descrição: Uma explosão em volta do usuário, derrubando inimigos.
+Efeito: Derruba o inimigo e causa 1d4 de dano de fogo.
+Custo (Mn): 7
+
+Feitiço: Chama Persistente
+Descrição: Cria uma pequena chama flutuante que segue o alvo e o ataca por 2 turnos.
+Efeito: Causa 1d4 + 2 ao inimigo
+Custo (Mn): 5
+
+---
+
+Feitiços Elementais: Vento
+
+Feitiço: Rajada de Vento
+Descrição: Cria uma forte rajada que empurra inimigos e projéteis.
+Efeito: Empurra os inimigos em 1d4 de blocos.
+Custo (Mn): 4
+
+Feitiço: Lâmina de Ar
+Descrição: Dispara uma lâmina cortante feita de vento condensado.
+Efeito: 1d6 de dano de vento em linha reta.
+Custo (Mn): 5
+
+Feitiço: Passos Leves
+Descrição: Reduz o atrito com o ar, aumentando a velocidade do usuário temporariamente.
+Efeito: +2 em deslocamento por 1d4 turnos.
+Custo (Mn): 3
+
+Feitiço: Escudo de Ar
+Descrição: Cria uma barreira de vento giratória que reduz ataques à distância.
+Efeito: Defesa +2 contra projéteis.
+Custo (Mn): 5
+
+---
+
+Feitiços Arcanos
+
+Feitiço: Projeção Arcana
+Descrição: Cria uma réplica ilusória do usuário que engana inimigos por um curto período.
+Efeito: Os inimigos têm 50% de chance de atacar a ilusão em vez do verdadeiro. Dura 1d4 turnos.
+Custo (Mn): 6
+
+Feitiço: Raio Místico
+Descrição: Dispara um feixe puro de energia arcana em linha reta.
+Efeito: Causa 1d8 de dano mágico direto. Ignora armaduras físicas.
+Custo (Mn): 5
+
+Feitiço: Campo de Dispersão
+Descrição: Anula magias ou efeitos ativos em uma área limitada.
+Efeito: Cancela feitiços de área e habilidades magias ativas dentro de 3 metros.
+Custo (Mn): 8
+
+Feitiço: Olhar da Verdade
+Descrição: Permite ver através de ilusões, disfarces e magias de engano.
+Efeito: Concede visão verdadeira por 1d6 turnos.
+Custo (Mn): 4
+
+Feitiço: Barreira Etérea
+Descrição: Cria um escudo de pura energia arcana ao redor do conjurador.
+Efeito: Reduz todo dano recebido em 50% por 1 turno.
+Custo (Mn): 6
+
+Feitiço: Telecinesia
+Descrição: Permite mover objetos ou criaturas pequenas com a mente.
+Efeito: Move objetos até 10 metros ou empurra levemente inimigos.
+Custo (Mn): 5
+
+Feitiço: Distorção Temporal
+Descrição: Manipula o fluxo do tempo ao redor do conjurador.
+Efeito: Permite agir duas vezes no mesmo turno ou esquivar automaticamente uma vez.
+Custo (Mn): 9
+
+---
+
+Elemento: Água
+
+Feitiço: Armadura Líquida
+Descrição: Reveste o corpo com uma película d'água protetora.
+Efeito: +1 de Defesa por 1d4 turnos.
+Custo (Mn): 5
+
+Feitiço: Névoa Ilusória
+Descrição: Cria uma cortina de névoa que reduz a visão dos inimigos.
+Efeito: Impede ataques precisos por 1 turno.
+Custo (Mn): 6
+
+Feitiço: Chicote Aquático
+Descrição: Forma um chicote d'água que atinge e move inimigos.
+Efeito: Move o inimigo para algum dos lados.
+Custo (Mn): 5
+
+Feitiço: Cura das Marés
+Descrição: Canaliza energia aquática para curar ferimentos leves.
+Efeito: Recupera 1d6 de HP.
+Custo (Mn): 6
+
+---
+
+Domínio: Feras
+
+Feitiço: Garras Espirituais
+Descrição: Cria garras de energia animal para ataques corpo a corpo.
+Efeito: Dano 1d4 de dano cortante e 1d4 de dano mágico.
+Custo (Mn): 4
+
+Feitiço: Rugido Selvagem
+Descrição: Emite um rugido que amedronta inimigos próximos.
+Efeito: Causa medo e atordoa por 1 turno.
+Custo (Mn): 5
+
+Feitiço: Chamado da Besta
+Descrição: Invoca uma fera espiritual aleatória para lutar ao seu lado temporariamente.
+Efeito: Invocação por 1d4 turnos.
+Custo (Mn): 10
+
+Feitiço: Instinto Primal
+Descrição: Amplifica sentidos e reflexos do usuário.
+Efeito: +2 em Técnica e Bravura por 2 turnos.
+Custo (Mn): 6
+
+Feitiço: Pele Bestial
+Descrição: Endurece a pele com energia natural, criando uma armadura temporária.
+Efeito: +3 de Defesa por 1d4 turnos.
+Custo (Mn): 5
+
